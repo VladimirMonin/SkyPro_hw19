@@ -13,3 +13,6 @@ class UserService:
             Config.PWD_HASH_SALT,
             Config.PWD_HASH_ITERATIONS
         ).decode("utf-8", "ignore")  # Convert bytes to final hash
+
+    def get_user_by_id(self, id):
+        pass
