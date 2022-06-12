@@ -10,7 +10,7 @@ from views.movies import movie_ns
 
 
 def create_data(app, db):
-    with app.app_context(): #TODO Узнать подробнее про конструкцию  with app.app_context():
+    with app.app_context():
         db.create_all()
 
         u1 = User(username="vasya", password="my_little_pony", role="user")
@@ -35,7 +35,6 @@ def register_extensions(app):
     api.add_namespace(genre_ns)
     api.add_namespace(movie_ns)
     create_data(app, db)
-
 
 
 app = create_app(Config())
