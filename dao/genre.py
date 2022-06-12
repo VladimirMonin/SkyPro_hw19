@@ -22,7 +22,7 @@ class GenreDAO:
         self.session.delete(genre)
         self.session.commit()
 
-    def update(self, genre_d):
+    def update(self, genre_d):  # WTF? All is done))
         genre = self.get_one(genre_d.get("id"))
         genre.name = genre_d.get("name")
 
