@@ -23,10 +23,17 @@ class UserService:
     def delete(self, uid):
         self.dao.delete(uid)
 
-    def get_hash(self, password):
+    def get_hash(self, password): #TODO Стереть ЭТО. И сделать микро методы. base64 encode/decode hash отдельно всё раздробить В ХАШУ!
         return hashlib.pbkdf2_hmac(  # Make yammy hash
             'sha256',
             password.encode('utf-8'),  # Convert the password to bytes
             self.config.PWD_HASH_SALT,
             self.config.PWD_HASH_ITERATIONS
         ).decode("utf-8", "ignore")  # Convert bytes to final hash
+
+    def get_by_username(self, username):
+        pass
+
+    def compare_password(self, password_hash, password):
+
+        pass

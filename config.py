@@ -1,6 +1,7 @@
 class Config(object):
     DEBUG = True
-    SECRET_HERE = 'JoAN_ROUTing!@$%)*&*&^%#'
+    JWT_SECRET = 'JoAN_ROUTing!@$%)*&*&^%#'
+    JWT_ALGORITHM = 'HS256'
     PWD_HASH_SALT = b'Actio_COURSEWOrk!'
     PWD_HASH_ITERATIONS = 77777
     SQLALCHEMY_DATABASE_URI = 'sqlite:///./movies.db'
