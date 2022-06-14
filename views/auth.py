@@ -1,6 +1,8 @@
 from flask import request
 from flask_restx import Resource, Namespace
 
+from service import auth
+
 auth_ns = Namespace('auth')
 class AuthsView(Resource):
     def post(self):

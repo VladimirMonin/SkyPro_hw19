@@ -6,8 +6,8 @@ class UserDAO:
     def __init__(self, User):
         self.User = User
 
-    def get_one(self, uid):
-        pass
+    def get_by_id(self, uid):
+        return User.query.get(uid)
 
     def get_by_user_name(self, username):
         pass

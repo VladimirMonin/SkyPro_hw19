@@ -1,10 +1,12 @@
 import hashlib
 from config import Config
+from dao.user import UserDAO
 
 
 class UserService:
-    def __int__(self, config: Config):
+    def __int__(self, config: Config, dao: UserDAO):
         self.config = Config
+        self.dao = UserDAO
 
     def get_hash(self, password):
         return hashlib.pbkdf2_hmac(  # Make yammy hash
@@ -14,5 +16,5 @@ class UserService:
             Config.PWD_HASH_ITERATIONS
         ).decode("utf-8", "ignore")  # Convert bytes to final hash
 
-    def get_user_by_id(self, id):
-        pass
+    def get_by_id(self, uid):
+        return self.dao.get_by_id(uid)
