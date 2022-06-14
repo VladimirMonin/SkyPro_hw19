@@ -21,13 +21,13 @@ class UsersView(Resource):
 @users_ns.route('/<int:uid>')
 class UserView(Resource):
     def get(self, uid):
-        data = user_service.get_one(uid)
+        data = user_service.get_by_id(uid)
         final_data = UserSchema().dump(data)
         return final_data, 200
 
     def put(self, uid):
         req_json = request.json
-        if 'id' not in req_json:
+        if 'id' not in req_json: # Зачем эта конструкция? Ведь по умолчанию идет обращение по ID?
             req_json['id'] = uid
         user_service.update(req_json)
         return '', 204
