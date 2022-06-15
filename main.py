@@ -17,7 +17,15 @@ def create_data(app, db):
 
         u1 = User(username="vasya", password="my_little_pony", role="user")
         u2 = User(username="oleg", password="qwerty", role="user")
-        u3 = User(username="oleg", password="P@ssw0rd", role="admin")
+        u3 = User(username="vladimir", password="P@ssw0rd", role="admin")
+
+        # pass_1 = 'my_little_pony'
+        # pass_2 = 'qwerty'
+        # pass_3 = 'P@ssw0rd'
+        #
+        # pass_1_hash = b'VZcOVtF7FILG5JoZQOGs6zgmJ/gPJOyEsaD8jBWJAVsgWKmZ0shk73WdxtrBP09eov/aIjlh+ItxMBBAlJbcwQ=='
+        # pass_2_hash = b'lNKeNUqsW/oquYGLK5tDNPIcKUm12LRSRg7fN0MK59SWYQwd/wkPgjFF3HWzmaHLYK5Ykdm5ss+kduFVFtEcLQ=='
+        # pass_3_hash = b'uUWTihX6z3lQzOufK6p8VDcJMprPQDmGMpyYzqTkvmzUrYlgLrGexzsK4r4AJl0OQj8IBx66YMrUXjrh2iiWpA=='
 
         with db.session.begin():
             db.session.add_all([u1, u2, u3])
