@@ -46,12 +46,11 @@ def register_extensions(app):
     api.add_namespace(movie_ns)
     api.add_namespace(users_ns)
     api.add_namespace(auth_ns)
-    # TODO Спросить почему добавление происходит дважды за раз?
     # create_data(app, db)
 
 
 app = create_app(Config())
-app.debug = True
+
 
 if __name__ == '__main__':
     app.run()

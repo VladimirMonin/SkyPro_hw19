@@ -46,7 +46,7 @@ class UserService:
 
     def hash_it(self, data):
         """Делает хеш и отдает байтовую строку 8-бит"""
-        return hashlib.pbkdf2_hmac(self.config.JWT_ALGORITHM,
+        return hashlib.pbkdf2_hmac(self.config.HASH_ALGORITHM,
                                    data.encode('utf-8'),
                                    self.config.PWD_HASH_SALT,
                                    self.config.PWD_HASH_ITERATIONS)

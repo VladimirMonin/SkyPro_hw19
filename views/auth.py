@@ -1,15 +1,17 @@
 from flask import request
 from flask_restx import Resource, Namespace
-
 from implemented import auth_service  # TODO create object! Where?!
+import logging
+
+logging.basicConfig(encoding='utf-8', level=logging.INFO)
 
 auth_ns = Namespace('auth')
 
-
-class AuthsView(Resource):
+@auth_ns.route('/')
+class AuthView(Resource):
     def post(self):
         data = request.json
-
+        logging.info(f'Данные полученные через POST запрос {data}')
         username = data.get('username', None)
         password = data.get('password', None)
 

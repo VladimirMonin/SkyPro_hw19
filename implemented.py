@@ -22,4 +22,4 @@ director_service = DirectorService(dao=director_dao)
 genre_service = GenreService(dao=genre_dao)
 movie_service = MovieService(dao=movie_dao)
 user_service = UserService(dao=user_dao, config=config)
-auth_service = AuthService() #TODO Почему передача параметров не работает? // user_service=user_service, config=config
+auth_service = AuthService(user_service=user_service, config=config) #TODO Почему передача параметров не работает? // user_service=user_service, config=config
