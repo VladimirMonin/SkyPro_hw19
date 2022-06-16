@@ -1,9 +1,12 @@
 import base64
 import hashlib
 import hmac
+import logging
 
 from config import Config
 from dao.user import UserDAO
+logging.basicConfig(encoding='utf-8', level=logging.INFO)  # Тут логирование на рботает. Только в сервисе
+
 
 
 class UserService:
@@ -17,8 +20,11 @@ class UserService:
     def get_all(self):
         return self.dao.get_all()
 
-    def create(self, uid):
-        return self.dao.create(uid)
+    def create(self, data):
+        logging.info(f'Данные полученные через POST запрос на создание пользователя {data}')
+        data['password'] = self.get_pass_hash(data['password'])
+        logging.info(f'Данные которые пойдут в запись БД по POST запросу на создание пользователя {data}')
+        return self.dao.create(data)
 
     def update(self, req_json):
         self.dao.update(req_json)
