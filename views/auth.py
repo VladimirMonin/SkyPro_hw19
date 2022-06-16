@@ -3,15 +3,16 @@ from flask_restx import Resource, Namespace
 from implemented import auth_service  # TODO create object! Where?!
 import logging
 
-logging.basicConfig(encoding='utf-8', level=logging.INFO)
+logging.basicConfig(encoding='utf-8', level=logging.INFO)  # Тут логирование на рботает. Только в сервисе
 
 auth_ns = Namespace('auth')
+
 
 @auth_ns.route('/')
 class AuthView(Resource):
     def post(self):
         data = request.json
-        logging.info(f'Данные полученные через POST запрос {data}')
+        logging.info(f'Данные полученные через POST запрос {data}')  # Тут логирование на рботает. Только в сервисе
         username = data.get('username', None)
         password = data.get('password', None)
 

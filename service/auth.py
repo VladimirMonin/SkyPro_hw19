@@ -9,8 +9,9 @@ import logging
 
 logging.basicConfig(encoding='utf-8', level=logging.INFO)
 
+
 class AuthService:
-    def __init__(self, user_service: UserService, config: Config):  # TODO Узнать об этом двоеточии
+    def __init__(self, user_service: UserService, config: Config):
         self.user_service = user_service
         self.config = config
 
@@ -27,7 +28,7 @@ class AuthService:
                 logging.info(f'Проверка пароля не пройдена. Пароли не совпадают')
                 abort(400)
 
-        logging.info(f'Проверка пароля пройдена. Начанием формировать токены')
+        logging.info(f'Ok. Начанием формировать токены')
 
         data = {
             'username': user.username,
@@ -57,5 +58,3 @@ class AuthService:
         username = data.get('username')
 
         return self.generate_tokens(username, None, is_refresh=True)
-
-
